@@ -8,6 +8,9 @@ namespace HelloWorld
     {
       var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan" };
 
+      Console.WriteLine("Please type your name, and then press enter:");
+      var name = Console.ReadLine();
+
       Console.WriteLine("Please choose a greeting");
       foreach (var arg in args)
       {
@@ -19,13 +22,13 @@ namespace HelloWorld
       switch (greetingChosen)
       {
         case "Southern":
-          Console.WriteLine("Howdy Y'all");
+          Console.WriteLine($"Howdy {name}");
           break;
         case "British":
-          Console.WriteLine("'Ello Govnuh");
+          Console.WriteLine($"'Ello Govnuh {name}");
           break;
         case "Pirate":
-          Console.WriteLine("Yarrrr matey");
+          Console.WriteLine($"Yarrrr {name}");
           break;
         default:
           Console.WriteLine("No greeting selected");
@@ -48,6 +51,14 @@ namespace HelloWorld
           Console.WriteLine(animal);
         }
       }
+
+      Random dino = new Random();
+      var randomDino = dino.Next(animals.Length);
+      var selectedDino = animals[randomDino];
+
+      Console.WriteLine("Please enter your favorite color:");
+      var favoriteColor = Console.ReadLine();
+      Console.WriteLine($"Would you like to have a {favoriteColor} {selectedDino}?");
     }
   }
 }
